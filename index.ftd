@@ -1,51 +1,94 @@
--- import: <user_name>.github.io/<repo_name>/assets
+-- import: fifthtry.github.io/doc-site as ds
+-- import: gargajit.github.io/expander as e 
+-- import: fifthtry.github.io/admonitions cbox
 
 
 
--- ds.page: Welcome to your [FASTN site](https://fastn.io/)
 
--- ftd.column:
-align-self: center
+-- ftd.column: 
+padding.px: 50
+background.solid: #eee
+width: fill-container
+height: fill-container
+align-content: top-center
+spacing.fixed.px: 20
 
--- chat.message-left: Yo! I am Amit Upadhyay, CEO of FifthTry, welcome to the new world of FTD.
+-- box: Who can participate?
 
--- ds.markdown: 
+If you are a University student and above 18, 
+then you are welcome to participate in wittyhacks.
+ 
 
-You reached the right place, and from here let me assure you, your FTD journey is going superfast. 🙂
 
--- end: chat.message-left
+-- box:
 
--- chat.message-right:  😊 Liking this chat component?
+-- box.title:
 
--- ds.markdown:
+How much does it cost?
 
-[Click here to learn more](https://fifthtry.github.io/bling/chat/)
-👍
+-- box.body:
 
--- end: chat.message-right
+Zero. Zip. Zilch. Nada. Nothing. Admission to Wittyhacks is completely free, 
+thanks to our sponsors! We'll provide you with a weekend's worth of 
+schwag, meals, drinks, snacks and a place to crash when you need a 
+break from coding.
+
+
+-- box:
+
+
 
 -- end: ftd.column
 
--- ds.h1: How to use?
-
-It's very simple like making a sandwich. Create new `.ftd` file and just say:
-
--- ds.code: `-- ds.page` 
-lang: ftd
-
-\-- ds.page: Your page title goes here
-
-Your page content goes here.
 
 
--- ds.h1: Need sidebar at right side of page?
+-- component box: 
+caption title: default
+body body: default value
+boolean $open: false
 
-Here it is, [use this document](https://fifthtry.github.io/doc-site/docs/right-sidebar/).
+
+-- ftd.column:
+border-width.px: 4
+spacing.fixed.px: 10
+width: fill-container
 
 
--- ds.h1: 👀 Learn FTD and become a pro?
+-- ftd.row:
+width: fill-container
+spacing: space-between
+border-bottom-width.px: 2
+padding.px: 10
+$on-click$: $toggle($value = $box.open)
 
-You are one click away, just check [our documentation](https://fastn.dev/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
 
--- end: ds.page
+-- ftd.text: $box.title
+
+-- ftd.text: X
+if: { box.open }
+color: red
+
+-- ftd.text: O
+if: { !box.open }
+color: blue
+
+-- end: ftd.row
+
+
+-- ftd.text: $box.body
+padding.px:10
+height: hug-content
+if: { box.open }
+
+
+
+-- end: ftd.column
+
+
+-- end: box
+
+
+-- void toggle(value):
+boolean $value:
+
+value = !value;
